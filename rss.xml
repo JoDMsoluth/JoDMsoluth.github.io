@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JoDMsoluth Blog]]></title><description><![CDATA[JoDMsoluth Personal blog.]]></description><link>https://awesome-lewin-d3de30.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Dec 2020 11:11:24 GMT</lastBuildDate><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JoDMsoluth Blog]]></title><description><![CDATA[JoDMsoluth Personal blog.]]></description><link>https://awesome-lewin-d3de30.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Dec 2020 14:58:15 GMT</lastBuildDate><item><title><![CDATA[깃 플로우]]></title><description><![CDATA[서론 이 게시물은 우아한 형제들 git-flow 자료를 참고하였습니다. 이번에 10명 규모의 스타트업에 프론트엔드 신입 포지션으로 입사를 했습니다. 현재 입사를 하고 한달째 되었는데요.…]]></description><link>https://awesome-lewin-d3de30.netlify.app/git-flow/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/git-flow/</guid><pubDate>Wed, 30 Dec 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;서론&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이 게시물은 &lt;a href=&quot;https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html&quot;&gt;우아한 형제들 git-flow&lt;/a&gt; 자료를 참고하였습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이번에 10명 규모의 스타트업에 프론트엔드 신입 포지션으로 입사를 했습니다. 현재 입사를 하고 한달째 되었는데요.
+3주간 회사 코드와 업무 프로세스를 파악하고 회사 소개페이지를 만드는 일을 맡게 되었습니다.&lt;/p&gt;
+&lt;p&gt;분량은 1.5 페이지 정도 되는 작은 프로젝트였지만 프로젝트 구성부터 배포까지 해야되기에 저에게는 나름 큰 일이었습니다. 딱히 막히는 작업은 없었지만 작업하던 중 큰 실수를 몇개 했는데요&lt;/p&gt;
+&lt;p&gt;나중에 알았지만 git init한 위치가 잘못되어서 git에서 인식하는 프로젝트의 루트 위치가 잘못되었다는걸 깨달았습니다.
+제대로 된 위치에서 다시 git init을 하니 기존의 커밋 데이터는 날아가고, 푸시를 했는데 &lt;code class=&quot;language-text&quot;&gt;related branch&lt;/code&gt;라는 에러가 났습니다.&lt;/p&gt;
+&lt;p&gt;여기서 아시는 분들은 아시겠지만 &lt;code class=&quot;language-text&quot;&gt;git push origin +develop&lt;/code&gt;처럼 브랜치 앞에 &lt;code class=&quot;language-text&quot;&gt;+&lt;/code&gt;를 붙이면 푸시하려는 브렌치의 기존 커밋은 지워버리고 강제 푸시되는 키워드가 있습니다. 제가 그렇게 해서 develop의 이전 커밋들을 날려먹었습니다.&lt;/p&gt;
+&lt;p&gt;이후 사수분께서 &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;를 써서 브랜치 구조만이라도 복구를 시켜주셨는데요. 결국, 이번 일을 계기로 &lt;code class=&quot;language-text&quot;&gt;git flow&lt;/code&gt;를 다시 공부해야 겠다는 생각이 들었습니다.&lt;/p&gt;
+&lt;p&gt;서론이 길었지만, 결국 git flow를 배우는 거는 같이 협업을 하는 사람들을 위한 매너를 배우는 일이 아닐까 생각합니다.&lt;/p&gt;
+&lt;h3&gt;협업 할 때 지켜야 하는 매너&lt;/h3&gt;
+&lt;p&gt;배달의 민족에서는 협업할 때 지켜야 하는 매너가 몇가지 있다고 합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;작업을 시작하기 전에 JIRA 티켓을 생성합니다.&lt;/li&gt;
+&lt;li&gt;하나의 티켓은 되도록 하나의 커밋으로 합니다.&lt;/li&gt;
+&lt;li&gt;커밋 그래프는 최대한 단순하게 가져갑니다.&lt;/li&gt;
+&lt;li&gt;서로 공유하는 브랜치의 커밋 그래프는 함부로 변경하지 않습니다.&lt;/li&gt;
+&lt;li&gt;리뷰어에게 꼭 리뷰를 받습니다.&lt;/li&gt;
+&lt;li&gt;자신의 Pull Request는 스스로 merge 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;제가 몸담고 있는 회사는 현재 JIRA 대신에 Trello로 이슈 관리를 하고 있는데요. 결국, 핵심은 기능단위로 브랜치를 따며, 이슈단위로 커밋하고 develop, release, master와 같은 공유 브랜치의 커밋은 건드리지 말자는 이야기입니다.&lt;/p&gt;
+&lt;p&gt;아래 사진에서 보면 매너를 지켜야할 upstream branch는 파랑색 repository를 말합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/9b379/image1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAACLUlEQVQoz41SXU8TQRTdf2jiCyTqgya+SkKMxjcxBVJIeJNQoAaRNlIxStLEh8Yi9mMphWKtTUuRfoLsbrdu2/3ednucncQpxph4JydzZ849d+/dO5zrunAc5y/YtgNggP28iGfhOvyRc8yEauTchmdDd4TRaET937tnXL/fR7fbhaqq8HwPnt/rqxhYKrb3mrjpK2BiJokbT4+xkxD+SHgdNKEnHg6H+JfJPQupry2k8k2kyS4pBr33OiO10UXPI5eCVugOXXppGw5MzYKhmRBFEZ1OB45lwdENaIqCoWliYNtQiC+KAvo9lWoM1Ry3rJNgSRFQaGWRrSSRq6ZRFSqgHRBcyk1kKgl8PP6AdPkTLtoNJhaVK5zUD3BI+C+NDNVxjjkgSXg8DN/Bo1d3MfVyEq8PAkwUL0YxtTmJJ+H7eLAxgdi394zLVj9jOnQLj0P3ML11G1vJ5+Asw0Lt6gzvDjexnQgikg6SivaZqNTK4w0fZFyxecK4qnCKt5kNRAi3w78AX94DJ8sy+4fdrsqCr0/OM0Xp/xdHh2LpOgy5jXa9DlUQYPZ6LMDSNGiSCLlRhy5JsNTxR22i09sSpHoNGhmSQZ4fp5EpNrNZfF9aAj87i8LcHC6jUSaSeB5lvx9pnw8FwkupFOM6+Twqi4vIzs+jtLCAxu4uOK9wsVhEbX0dxdVVnK6s4Ec8Pn6HuRzOyX0hEEB5eRntoyPG/SyVUF1bo7ozgotYDL8Ad1Eb0E+54ZQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image1&quot;
+        title=&quot;image1&quot;
+        src=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/f058b/image1.png&quot;
+        srcset=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/c26ae/image1.png 158w,
+/static/7cb458b5468198b7fbc11ace32f7501e/6bdcf/image1.png 315w,
+/static/7cb458b5468198b7fbc11ace32f7501e/f058b/image1.png 630w,
+/static/7cb458b5468198b7fbc11ace32f7501e/40601/image1.png 945w,
+/static/7cb458b5468198b7fbc11ace32f7501e/9b379/image1.png 951w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1&gt;Git Flow 전략 톺아보기&lt;/h1&gt;
+&lt;p&gt;Git-flow의 브랜치 종류는 프로젝트 구성에 따라 다양하지만 대중적으로 사용하는 브랜치는 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;master : 제품으로 출시될 수 있는 브랜치&lt;/li&gt;
+&lt;li&gt;develop : 다음 출시 버전을 개발하는 브랜치&lt;/li&gt;
+&lt;li&gt;feature/기능명 : 기능을 개발하는 브랜치&lt;/li&gt;
+&lt;li&gt;release : 이번 출시 버전을 준비하는 브랜치&lt;/li&gt;
+&lt;li&gt;hotfix : 출시 버전에서 발생한 버그를 수정 하는 브랜치&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이 브랜치들은 아래 그림과 같은 순서로 git-flow를 진행합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/image2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 132.27848101265823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAIAAAA44esqAAAACXBIWXMAAAsSAAALEgHS3X78AAAD7ElEQVQ4y21UaXOiWBTl//+TznyY6Zqqjj1Jq51oXBIQVASUHRdElH1XMwdetqma98G6ct/dzjnvUq/vJ01T27av12tRFEmS4Mvh4Oi6DiPLMt/3YZzPZ9gfIdTlcgnD8Gsw7m23WxhVVSERXGVZwgsjzzL34MD1FowikiRdm3NpDr6+e18/7pHvfhxvD25R5EEQxHFMsSy73+/hQBFUqCq0VkTRCf/yPI+b47ruwXXPRc6a659TfjZhfj88cBxHqapqWRYJxkGB0DeZ5+9BmGAc5D2dTqiDttHF8ehmaYr7giBsNhsK6XED5RzHUTXVdb3jwVCkHml1vd5omqYoCnDCgEiERj4BAzaDp6cFDs93221BkLyjpSwHZGREdrvd0WgYhSEiUd/zPJIXjVBAGO7xeAwfL/Cz+cLU+ZXwEISxaZrI2e/1ev3+dm8XDSqnJpgATKENoO35ntClZW7BPXO6NlOkx/lc+OPm24Rh/CDQlitAVBcsi7Th9a3tKIpkWYa1eGA0VjJ4JS8jTZnJsrJeW5g2L4rTzjboSRxH44U4klZHxwFmu92OAqSiKCLYellpY8EWNknmjvp/A7kwDCAYYIkO86rCneXOnujm5OW51WoxDEOBBgwGR1xm+nS5Fcys8A2VxZeqAu8lgSdtBHsp0XcSxfHxeETLn8En39tMVZu3FF3U1fmbvK5Q+AFzoU+kAK9hFP3PzHDbzt4PY03mwHMcZ7qlGo48m85brdvxaERUhGKfVGEqSRSRfjgYgjOGprnpzPPrG6op/57cySuFZujpdIrhURmMfmieAulo++i6vx46P25/9B57u90+DOsJ98ddf9YmD44ICzr7TzDaBh+wuLuRD/Vlueuoo6c/gyDZ2BYjjkRRanfaQoMLglHmMxiKJQ9jM1Hc1VqmBdsxDJWrl4Fvd9mfpmGxHAu1kcfjvSusDkYyyBtWUmWbpbEV9er6GkX1urB25mjeI1fJe8abJSvlTZ6oTHYNqDLYpbNYh8mBpTuWuVlIc9kW0iTFSyTb5lyWYRNM1kXN85znYYV5bMxWm5mR5gd12ROE5XAwUFYqEEZB0BEFgaTrS2sNA+sByNUPQ1VUBGuLlb91T9Y+SvMkLUVRuL297XTapCYWDH5pzWgLEvfycn9/T9M0BaENh0M45LuJf/JOYfAy7kNhDDO5ubn5/td3ghCK1ymKIotjdGEYBopTWCuEqnOj3Kq6LvihLHZ4XvznrvU46JZFSZZuTTi251eeP4R6Ob+tTjBvrddFXtKz8ZPURsIojohIqrII/S+b5Ot+BSP49Vzl+elbFOfva/iKdGg+DkNGEBi9JvzShPwL5BCbiibKO7AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image2&quot;
+        title=&quot;image2&quot;
+        src=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/f058b/image2.png&quot;
+        srcset=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/c26ae/image2.png 158w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/6bdcf/image2.png 315w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/f058b/image2.png 630w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/40601/image2.png 945w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/image2.png 1150w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;먼저 master -&gt; develop 브랜치 순으로 프로젝트 초기설정을 합니다. 그러면 각각의 개발자들이 develop 브랜치에서 포크하고 이슈/기능 단위로 업무를 가져가서 feature 브랜치를 만듭니다.
+feature 브랜치는 언제나 develop 브랜치로부터 생성되고 기능구현이 완료되면 develop 브랜치로 pr을 날려서 코드를 합칩니다. 그렇게 develop에 머지가 되었다면 qa를 하기 위해 release 브랜치를 만듭니다. qa가 성공하면 release 브랜치를 master와 develop 브랜치로 머지합니다.
+마지막으로 출시된 &lt;strong&gt;master branch에 버전 태그를 추가&lt;/strong&gt;합니다.&lt;/p&gt;
+&lt;h1&gt;Git Flow 전략 깊게보기&lt;/h1&gt;
+&lt;h2&gt;1. 티켓(기능) 처리하기&lt;/h2&gt;
+&lt;p&gt;하나의 기능을 혼자서 개발할 수도 있지만 기능이 크다면 같이 개발해야 하는 경우가 발생합니다.&lt;/p&gt;
+&lt;p&gt;또한, 하나의 기능을 여러개의 이슈로 나누고 커밋은 하나의 이슈가 끝날 때마다 해야합니다. 이렇게 복잡한 상황속에서 feature 브랜치에서의 협업이 가능하도록 &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;방식을 고려해 봅니다.&lt;/p&gt;
+&lt;h2&gt;2. develop 변경사항 feature로 가져오기&lt;/h2&gt;
+&lt;p&gt;작업을 할 때 브랜치의 수명은 되도록 짧게 가져가는 게 좋지만, feature 브랜치에서 기능을 완료하는데 해야 할 작업들이 많아서 오래 걸리는 경우 들이 있습니다. 그러다 보면 develop에 추가된 기능들이 필요한 경우가 종종 생기게 됩니다. 그럴 때는 feature 브랜치에 develop의 변경사항들을 가져와야 합니다.&lt;/p&gt;
+&lt;h2&gt;3. 완료된 기능을 이번 출시 버전에 포함시키기&lt;/h2&gt;
+&lt;p&gt;하나의 feature 브랜치가 완료되면 feature 브랜치를 이번 출시 버전에 포함시키기 위해서 develop 브랜치에 머지합니다.&lt;/p&gt;
+&lt;h2&gt;4. QA 시작하기&lt;/h2&gt;
+&lt;p&gt;이번 버전에 포함되어야 할 기능들이 모두 완료되었습니다. 이제부터 출시 담당자가 해야 할 일이 많습니다. 출시 담당자는 QA를 시작하기 위해 먼저 release 브랜치를 생성하고 upstream에 push하여 release 브랜치를 공유합니다.&lt;/p&gt;
+&lt;h2&gt;5. QA 중 버그 수정하기&lt;/h2&gt;
+&lt;p&gt;QA 중 예외 상황이 발생할 때마다 버그 티켓이 하나씩 생성되는데 이 티켓들을 모두 해결해야만 앱을 출시할 수 있습니다.
+버그 티켓들도 티켓이기 때문에 ‘1. 티켓 처리하기’와 같은 방법으로 처리합니다.&lt;/p&gt;
+&lt;h2&gt;6. 출시&lt;/h2&gt;
+&lt;p&gt;발생하는 버그들을 모두 수정했다면 이젠 출시를 준비할 때입니다. release 브랜치를 master 브랜치와 develop 브랜치에 merge하고 마지막으로 master 브랜치에서 버전 태그를 달아줍니다.&lt;/p&gt;
+&lt;h1&gt;결론&lt;/h1&gt;
+&lt;p&gt;아직 git rebase에 익숙치 않아서 rebase 방식을 공부해 보아야 겠다. 항상 merge 방식으로 개발을 해서 그런지 공부하기 전부터 두려움이 가득하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://awesome-lewin-d3de30.netlify.app/new-beginnings/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/new-beginnings/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
 right at the coast of the Semantics, a large language ocean. A small river named
