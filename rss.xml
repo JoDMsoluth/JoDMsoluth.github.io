@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JoDMsoluth Blog]]></title><description><![CDATA[JoDMsoluth Personal blog.]]></description><link>https://awesome-lewin-d3de30.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Dec 2020 14:58:15 GMT</lastBuildDate><item><title><![CDATA[깃 플로우]]></title><description><![CDATA[서론 이 게시물은 우아한 형제들 git-flow 자료를 참고하였습니다. 이번에 10명 규모의 스타트업에 프론트엔드 신입 포지션으로 입사를 했습니다. 현재 입사를 하고 한달째 되었는데요.…]]></description><link>https://awesome-lewin-d3de30.netlify.app/git-flow/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/git-flow/</guid><pubDate>Wed, 30 Dec 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;서론&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JoDMsoluth Blog]]></title><description><![CDATA[JoDMsoluth Personal blog.]]></description><link>https://awesome-lewin-d3de30.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Dec 2020 17:07:11 GMT</lastBuildDate><item><title><![CDATA[Git Rebase, Git Merge 차이]]></title><description><![CDATA[서론 아마 Git Merge방식은 Git을 좀 써본 사람이라면 누구나 사용해 본 방식일 거라고 생각합니다. 저는 rebase…]]></description><link>https://awesome-lewin-d3de30.netlify.app/git-rebase/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/git-rebase/</guid><pubDate>Thu, 31 Dec 2020 00:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;서론&lt;/h1&gt;
+&lt;p&gt;아마 Git Merge방식은 Git을 좀 써본 사람이라면 누구나 사용해 본 방식일 거라고 생각합니다.&lt;/p&gt;
+&lt;p&gt;저는 rebase의 용도를 처음 들었을 때 굉장히 어렵고 고급진 방법이라고 생각을 했는데요. 공부를 시작하고 나서는 익숙해지면 정말 쉽겠다는 생각이 들었습니다.&lt;/p&gt;
+&lt;h1&gt;Git Rebase&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;re + base&lt;/code&gt;는 말 그대로 &lt;strong&gt;base를 재설정한다&lt;/strong&gt;는 의미입니다. 여기서 말하는 base는 ‘branch’에 대한 base입니다.&lt;/p&gt;
+&lt;p&gt;아래 사진에 다음과 같은 branch의 commit 구조가 있다고 생각해 봅시다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1fd3ca0ad90411531db926f20618e5d9/f1d1f/image1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQoz21STU8TURSdH4ZEVwrBBcSNC1cSE6MxUhtIRF0Y4h9gAW78Fa5ETTEkEoU2UMROO9CZMq1MS6ftdL4/3vHOozNOzZzkZs597855993zBBAYYzwSHsP1PNiOC8/3OXddD0EYIq8+4TGEbBLzMIo4FyUFu/sVnNabqP6WsPfjCBcdbepQLpYRjUNINqKJUIyIRdM5cT8IkEXSLcCm1gVjbOHFq22svNyCPjIxNCwUX7/na3E+GtsorG/zvD8cw3Z9rG98wNPVTWg9HfGx2sDEhaajO7AgSM02ZucKmLmzgqOagmpDxex8ATcXiigdNnBcVzFz+zluUE35VIb8R8etu0Vef1CpwSXFmtLFz6oISe1dX/nLtzJ2Sodp2593y/hKa2M3oKsxzndKB+n+3n4VHz99T/MwYpNR5ZiSzS0S7BvO1Cyzs82awWjuqSlhGPFgkwGHNHBGP9okOHIC+IYBazBMhTzThNkf5JuS1xnnFAF95PM2nj3awJOHb6Ff9mBbDoqP32H5wRv0FBU+1avdEVqXV9B081rwf2SfUeeshcXFVSwtreG8JkMjN+/fW8P8QgHKiQiHDhVbZMqxiLP2Vb7gRDXtWjmpQyYXE3QaTUiVX/9K0/cL/AXmfisxRwDUYQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image1&quot;
+        title=&quot;image1&quot;
+        src=&quot;/static/1fd3ca0ad90411531db926f20618e5d9/f058b/image1.png&quot;
+        srcset=&quot;/static/1fd3ca0ad90411531db926f20618e5d9/c26ae/image1.png 158w,
+/static/1fd3ca0ad90411531db926f20618e5d9/6bdcf/image1.png 315w,
+/static/1fd3ca0ad90411531db926f20618e5d9/f058b/image1.png 630w,
+/static/1fd3ca0ad90411531db926f20618e5d9/f1d1f/image1.png 739w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;feture라는 브랜치는 master 브랜치에서 파생된 브랜치입니다. feature를 작업하는 도중에 누군가 C-D 커밋을 master 브랜치에 푸시했습니다.&lt;/p&gt;
+&lt;p&gt;Merge 방식을 사용했던 사람은 아마 master 브랜치를 pull 해서 merge하는 방식을 사용할 것입니다. 하지만, 우리는 발상을 달리해서 E-F 커밋의 현재 base인 B를 D로 바꾸는 것으로 코드를 합치겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 현재 feature 브랜치에 있다&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# 사용법은 간단하다 --rebase만 붙이면 된다.&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; pull --rebase origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;결과적으로 아래와 같은 모양이 나옵니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/5a190/image2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.075949367088604%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABSUlEQVQoz21Qv0/CQBjt/+XkZBzcjHExDu64OBB242IMk8ZBBzcXV3dDSMREqxQJpLQ0UKi0tJIrxXJ3fV4P+e1LLnn3fcn78SnNloPCs4YU5U8TalmXvFiqoN5oIxH8qfiBjtOX83hMQRlDki7ENpmQGZT81QM2d07gDYbIZC9xlLmAT0bY3s3hLH8Ppz/AxtYxru8eETFArVnQ2x640EnFVp/i9Hy8aw2pbjQ7qOktybWqCbvrSa5qOrq9AOEPlX/G+SzZVGiSViScRl2MTtlyjUk5gIyEIGfzIaVLe1k5FeLCMQX/c45FkrdqAKcXgYmbvVZ8eEGMetXA4X4OJXFTy7BxsJfFS0GFSyLUTBskGs8TLqbklMFohfgexEiEScMiCIcM/peH89NbmHULgRsIfgNdmIQxgxsQRDFdrzyvnqwUXj/Df/gF8DUMK4J6WNoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image2&quot;
+        title=&quot;image2&quot;
+        src=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/f058b/image2.png&quot;
+        srcset=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/c26ae/image2.png 158w,
+/static/7dfe4726b14c2aa6b8996a24b309d773/6bdcf/image2.png 315w,
+/static/7dfe4726b14c2aa6b8996a24b309d773/f058b/image2.png 630w,
+/static/7dfe4726b14c2aa6b8996a24b309d773/5a190/image2.png 800w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1&gt;Git Rebase 심화&lt;/h1&gt;
+&lt;h2&gt;1. Interactive Rebasing&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Interactive Rebasing&lt;/code&gt; 은 Rebase 를 실행하기 전, 내가 &lt;strong&gt;작업 중인 feature 브랜치의 commit history 를 조작&lt;/strong&gt;할 수 있게 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; rebase -i master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;각각의 commit 들의 앞에 붙은 command 에 따라 조작이 이루어지며 각 command 는 설명 부분에 나열해보겠습니다..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pick : 해당 commit 그대로 유지&lt;/li&gt;
+&lt;li&gt;reword : 해당 commit 의 message 변경&lt;/li&gt;
+&lt;li&gt;fixup : 해당 commit 을 없애고 코드 변경 사항은 바로 윗 commit 에 포함 시킴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Interative Rebasing 은 보통 불필요한 commit history 를 정리하기 위해 사용됩니다.&lt;/p&gt;
+&lt;h2&gt;2. Local Cleanup&lt;/h2&gt;
+&lt;p&gt;작업 중인 feature 브랜치의 commit 몇 개만의 history 를 수정하려면, git rebase 의 base 를 master 브랜치의 끝이 아니라 feature 브랜치의 이전 commit 중 하나로 정해주면 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; rebase -i HEAD~3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 명령어로 HEAD 에서 3 단계 전의 commit 을 base 로 잡고 그 위의 commit 부터 history 를 re-write 할 수 있습니다.
+&lt;strong&gt;Rebase하기전이 아니라 단지, Local상에서 commit을 수정하는 장점이 있습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;커밋 수정을 완료했으면 다음과 같은 방법으로 Rebase할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; merge-base feature master
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; rebase -i origin-base&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Rebase를 사용하는 이유?&lt;/h1&gt;
+&lt;p&gt;근데, 우리는 왜 쓰기 쉬운 Merge 방식을 냅두고 Rebase 방식을 사용하는 것일까요??&lt;/p&gt;
+&lt;p&gt;결론부터 말하면 브랜치의 히스토리가 깔끔해지기 때문입니다.&lt;/p&gt;
+&lt;p&gt;아래 사진은 극단적인 예시이기는 하지만, 비교하기에 적합한 사진이라 넣었습니다. 커밋 히스토리가 정말 깔끔해지지 않았나요??&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/2dc7d/image3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.41772151898735%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAARlAAAEZQAGA43XUAAACFklEQVQoz4VTbY/SQBDu//e7HzRRTy8mGjESNWeiuYNWgoDyEigH5R0K5aXHttttu93utk5bQM54cdJsnt3ZmZ2Z56kUBAEhxPd9LkScmoiiDETHkwSndgJhGAKWdhujXFJkWY6OMf81IYTjOHBfyten1+0pIe6TYs91vc0ePy32MPF8B6svHhO0J67L43jyKbeqVwGMrz4sS4WsLmlgoIVpw+amOXSIiwj90dehBt8l6+ZPzlhW0VptOZsVgM1tB+vzrBPprBqmdCYXctfem48+NxAm4IdZgIfz0EsBrJTSU4QkjpMAM5Hl+FQ37bIGj0TTjeW4Pg25tjQFDxkLklaFON2XzicBk4/jsDzcfm3PYh48l2/Hhqnv0MuSxjm3bRsKAWr+HQw5BQsa011rtoPtN1X3aLBCpKQZHnHS1NACz3g6BJ84zBi+VvWbzizi7NX3vmnhnr57XxtFAnQgINIDStL+/375IIMH6I3OXBmQjKVeLBR+1aosreq+90GDFlxCpP7SHC6M1nCBiD/eYuR6k611R7wVwoblbG2i75N1btr6HV4jZ25iI1mt5OW3lVFlsHpXHTfHxrOCWtMWl0pX6c5zlf7HWu9LY/Sm3L+qjy4V9bXSzte0i6Kar2q56uBPz/eFDVwyxuiJgSgClmnai0iknXBOM5Ec/NmXzZ3S5FdLTyBvHHKOMWZhCDhRLgW1JGz/BiYMUTuTC7NBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image3&quot;
+        title=&quot;image3&quot;
+        src=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/f058b/image3.png&quot;
+        srcset=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/c26ae/image3.png 158w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/6bdcf/image3.png 315w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/f058b/image3.png 630w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/40601/image3.png 945w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/78612/image3.png 1260w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/2dc7d/image3.png 1760w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1&gt;Rebase를 언제 사용해야 할까?&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Git Rebase 는 다른사람과 같이 사용하는 master, develop 같은 브랜치에서는 절대로 사용하면 안됩니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;다른 팀원과 공유하는 브랜치를 rebase 할 경우, 해당 브랜치는 내 로컬에서만 전혀 다른 history 를 갖게 될 수도 있습니다.&lt;/p&gt;
+&lt;p&gt;이를 다시 다른 팀원들의 동일 브랜치와 합치려면 git merge 를 통해 새로운 merge commit 을 생성하는 것이 불가피하고 그뿐만 아니라 history 상에 동일한 code 변경 내용을 가진 history 가 중복으로 존재하게 될 수도 있습니다.&lt;/p&gt;
+&lt;p&gt;이를 해결하기 위해서는 &lt;code class=&quot;language-text&quot;&gt;Git Revert&lt;/code&gt;를 활용하는 것을 고려해야 합니다.&lt;/p&gt;
+&lt;h1&gt;결론&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;만약 master 브랜치가 매우 빠르게 업데이트되고 있고 그에따라 feature 브랜치와 계속해서 merge 해야한다면 rebase 방식을 고려해 보는 것이 좋을 것 같습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git log, git bisect 또는 gitk&lt;/code&gt; 등의 명령어를 사용한 커밋 로그를 보는 것이 쉬워집니다.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[깃 플로우 톺아보기]]></title><description><![CDATA[서론 이 게시물은 우아한 형제들 git-flow 자료를 참고하였습니다. 이번에 10명 규모의 스타트업에 프론트엔드 신입 포지션으로 입사를 했습니다. 현재 입사를 하고 한달째 되었는데요.…]]></description><link>https://awesome-lewin-d3de30.netlify.app/git-flow/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/git-flow/</guid><pubDate>Wed, 30 Dec 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;서론&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;이 게시물은 &lt;a href=&quot;https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html&quot;&gt;우아한 형제들 git-flow&lt;/a&gt; 자료를 참고하였습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -113,316 +249,4 @@ feature 브랜치는 언제나 develop 브랜치로부터 생성되고 기능구
 &lt;h2&gt;6. 출시&lt;/h2&gt;
 &lt;p&gt;발생하는 버그들을 모두 수정했다면 이젠 출시를 준비할 때입니다. release 브랜치를 master 브랜치와 develop 브랜치에 merge하고 마지막으로 master 브랜치에서 버전 태그를 달아줍니다.&lt;/p&gt;
 &lt;h1&gt;결론&lt;/h1&gt;
-&lt;p&gt;아직 git rebase에 익숙치 않아서 rebase 방식을 공부해 보아야 겠다. 항상 merge 방식으로 개발을 해서 그런지 공부하기 전부터 두려움이 가득하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://awesome-lewin-d3de30.netlify.app/new-beginnings/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/new-beginnings/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.&lt;/p&gt;
-&lt;h2&gt;On deer horse aboard tritely yikes and much&lt;/h2&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;This however showed weasel&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Well uncritical so misled&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;this is very interesting&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Goodness much until that fluid owl&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;When she reached the first hills of the &lt;strong&gt;Italic Mountains&lt;/strong&gt;, she had a last
-view back on the skyline of her hometown &lt;em&gt;Bookmarksgrove&lt;/em&gt;, the headline of
-&lt;a href=&quot;http://google.com&quot;&gt;Alphabet Village&lt;/a&gt; and the subline of her own road, the Line
-Lane. Pityful a rhetoric question ran over her cheek, then she continued her
-way. On her way she met a copy.&lt;/p&gt;
-&lt;h3&gt;Overlaid the jeepers uselessly much excluding&lt;/h3&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-&lt;a href=&quot;http://google.com&quot;&gt;Longe and Parole&lt;/a&gt; and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.&lt;/p&gt;
-&lt;h3&gt;According a funnily until pre-set or arrogant well cheerful&lt;/h3&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;So baboon this&lt;/li&gt;
-&lt;li&gt;Mounted militant weasel gregariously admonishingly straightly hey&lt;/li&gt;
-&lt;li&gt;Dear foresaw hungry and much some overhung&lt;/li&gt;
-&lt;li&gt;Rash opossum less because less some amid besides yikes jeepers frenetic
-impassive fruitlessly shut&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rhetoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and
-return to its own, safe country.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.&lt;/p&gt;
-&lt;h4&gt;Silent delightfully including because before one up barring chameleon&lt;/h4&gt;
-&lt;p&gt;Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.&lt;/p&gt;
-&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.&lt;/p&gt;
-&lt;h5&gt;Wherever far wow thus a squirrel raccoon jeez jaguar this from along&lt;/h5&gt;
-&lt;p&gt;She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rhetoric question ran over her cheek, then she continued her way. On her way she
-met a copy.&lt;/p&gt;
-&lt;h6&gt;Slapped cozy a that lightheartedly and far&lt;/h6&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Second Post!]]></title><description><![CDATA[Wow! I love blogging so much already. Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the…]]></description><link>https://awesome-lewin-d3de30.netlify.app/my-second-post/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/my-second-post/</guid><pubDate>Wed, 06 May 2015 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Wow! I love blogging so much already.&lt;/p&gt;
-&lt;p&gt;Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich.”?
-(&lt;a href=&quot;https://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;Wikipedia Link&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Yeah, I didn’t either.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://awesome-lewin-d3de30.netlify.app/hello-world/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
-&lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
-&lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A salted duck egg is a Chinese preserved food product made by soaking duck
-eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-charcoal paste. The eggs may also be sold with the salted paste removed,
-wrapped in plastic, and vacuum packed. From the salt curing process, the
-salted duck eggs have a briny aroma, a gelatin-like egg white and a
-firm-textured, round yolk that is bright orange-red in color.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/e1596/salty_egg.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEEBf/aAAwDAQACEAMQAAABgik0dXC//8QAGRABAAMBAQAAAAAAAAAAAAAAAQACEhEy/9oACAEBAAEFAkqW2DlnRj73yf/EABcRAQADAAAAAAAAAAAAAAAAAAAREkH/2gAIAQMBAT8B1WX/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQL/2gAIAQIBAT8Bi6f/xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIRISIxMv/aAAgBAQAGPwK9GNocyS8hCj//xAAbEAADAQADAQAAAAAAAAAAAAABESEAMUGBof/aAAgBAQABPyGxNMfrLHmCDZmAzzvJJDjEQCHv/9oADAMBAAIAAwAAABDIL//EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAwEBPxARhylZv//EABgRAAIDAAAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EFoktI//xAAdEAEBAAICAwEAAAAAAAAAAAABEQAxIWFBcYHh/9oACAEBAAE/EEbMLQ0fMHDVaPIXyI4pk4JUnWacNCtO8ojDE9TGIYES7/Jn/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Chinese Salty Egg&quot;
-        title=&quot;Chinese Salty Egg&quot;
-        src=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/828fb/salty_egg.jpg&quot;
-        srcset=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/ff44c/salty_egg.jpg 158w,
-/static/8058f3f26913fea3b6a89a73344fe94a/a6688/salty_egg.jpg 315w,
-/static/8058f3f26913fea3b6a89a73344fe94a/828fb/salty_egg.jpg 630w,
-/static/8058f3f26913fea3b6a89a73344fe94a/0ede0/salty_egg.jpg 945w,
-/static/8058f3f26913fea3b6a89a73344fe94a/3ac88/salty_egg.jpg 1260w,
-/static/8058f3f26913fea3b6a89a73344fe94a/e1596/salty_egg.jpg 2048w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;You can also write code blocks here!&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; saltyDuckEgg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;chinese preserved food product&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;Number&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;Title&lt;/th&gt;
-&lt;th align=&quot;right&quot;&gt;Year&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;1&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Harry Potter and the Philosopher’s Stone&lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt;2001&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;2&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Harry Potter and the Chamber of Secrets&lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt;2002&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;3&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Harry Potter and the Prisoner of Azkaban&lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt;2004&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;a href=&quot;https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md&quot;&gt;View raw (TEST.md)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;This is a paragraph.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Header 1&lt;/h1&gt;
-&lt;h2&gt;Header 2&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Header 1
-========
-
-Header 2
---------&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Header 1&lt;/h1&gt;
-&lt;h2&gt;Header 2&lt;/h2&gt;
-&lt;h3&gt;Header 3&lt;/h3&gt;
-&lt;h4&gt;Header 4&lt;/h4&gt;
-&lt;h5&gt;Header 5&lt;/h5&gt;
-&lt;h6&gt;Header 6&lt;/h6&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# Header 1
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
-###### Header 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Header 1&lt;/h1&gt;
-&lt;h2&gt;Header 2&lt;/h2&gt;
-&lt;h3&gt;Header 3&lt;/h3&gt;
-&lt;h4&gt;Header 4&lt;/h4&gt;
-&lt;h5&gt;Header 5&lt;/h5&gt;
-&lt;h6&gt;Header 6&lt;/h6&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# Header 1 #
-## Header 2 ##
-### Header 3 ###
-#### Header 4 ####
-##### Header 5 #####
-###### Header 6 ######&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;h2&gt;This is a header.&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;This is the first list item.&lt;/li&gt;
-&lt;li&gt;This is the second list item.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Here’s some example code:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Markdown.generate();&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; ## This is a header.
-&amp;gt; 1. This is the first list item.
-&amp;gt; 2. This is the second list item.
-&amp;gt;
-&amp;gt; Here&amp;#39;s some example code:
-&amp;gt;
-&amp;gt;     Markdown.generate();&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Red&lt;/li&gt;
-&lt;li&gt;Green&lt;/li&gt;
-&lt;li&gt;Blue&lt;/li&gt;
-&lt;li&gt;Red&lt;/li&gt;
-&lt;li&gt;Green&lt;/li&gt;
-&lt;li&gt;Blue&lt;/li&gt;
-&lt;li&gt;Red&lt;/li&gt;
-&lt;li&gt;Green&lt;/li&gt;
-&lt;li&gt;Blue&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Red
-&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Green
-&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Blue
-
-&lt;span class=&quot;token list punctuation&quot;&gt;*&lt;/span&gt; Red
-&lt;span class=&quot;token list punctuation&quot;&gt;*&lt;/span&gt; Green
-&lt;span class=&quot;token list punctuation&quot;&gt;*&lt;/span&gt; Blue
-
-&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Red
-&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Green
-&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Blue&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;code goes&lt;/code&gt; here in this line&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bold&lt;/strong&gt; goes here&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;- &lt;span class=&quot;token code keyword&quot;&gt;`code goes`&lt;/span&gt; here in this line
-&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token bold&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;token content&quot;&gt;bold&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;**&lt;/span&gt;&lt;/span&gt; goes here&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;Buy flour and salt&lt;/li&gt;
-&lt;li&gt;Mix together with water&lt;/li&gt;
-&lt;li&gt;Bake&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;&lt;span class=&quot;token list punctuation&quot;&gt;1.&lt;/span&gt; Buy flour and salt
-&lt;span class=&quot;token list punctuation&quot;&gt;1.&lt;/span&gt; Mix together with water
-&lt;span class=&quot;token list punctuation&quot;&gt;1.&lt;/span&gt; Bake&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;code goes&lt;/code&gt; here in this line&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bold&lt;/strong&gt; goes here&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;1. &lt;span class=&quot;token code keyword&quot;&gt;`code goes`&lt;/span&gt; here in this line
-&lt;span class=&quot;token list punctuation&quot;&gt;1.&lt;/span&gt; &lt;span class=&quot;token bold&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;token content&quot;&gt;bold&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;**&lt;/span&gt;&lt;/span&gt; goes here&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Paragraph:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Code&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;!-- --&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Paragraph:
-
-    Code&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-&lt;hr&gt;
-&lt;hr&gt;
-&lt;hr&gt;
-&lt;hr&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;* * *
-
-***
-
-*****
-
-- - -
-
----------------------------------------&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is &lt;a href=&quot;http://example.com&quot; title=&quot;Example&quot;&gt;an example&lt;/a&gt; link.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://example.com&quot;&gt;This link&lt;/a&gt; has no title attr.&lt;/p&gt;
-&lt;p&gt;This is &lt;a href=&quot;http://example.com&quot; title=&quot;Optional Title&quot;&gt;an example&lt;/a&gt; reference-style link.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;This is [an example](http://example.com &amp;quot;Example&amp;quot;) link.
-
-[This link](http://example.com) has no title attr.
-
-This is [an example] [id] reference-style link.
-
-[id]: http://example.com &amp;quot;Optional Title&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;em&gt;single asterisks&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;single underscores&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;double asterisks&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;double underscores&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;*single asterisks*
-
-_single underscores_
-
-**double asterisks**
-
-__double underscores__&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This paragraph has some &lt;code class=&quot;language-text&quot;&gt;code&lt;/code&gt; in it.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;This paragraph has some `code` in it.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://placehold.it/200x50&quot; alt=&quot;Alt Text&quot; title=&quot;Image Title&quot;&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;![Alt Text](https://placehold.it/200x50 &amp;quot;Image Title&amp;quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;아직 git rebase에 익숙치 않아서 rebase 방식을 공부해 보아야 겠다. 항상 merge 방식으로 개발을 해서 그런지 공부하기 전부터 두려움이 가득하다.&lt;/p&gt;</content:encoded></item></channel></rss>
