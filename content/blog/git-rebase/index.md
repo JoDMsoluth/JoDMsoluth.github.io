@@ -1,7 +1,8 @@
 ---
 title: Git Rebase, Git Merge 차이
 date: "2020-12-31T00:40:32.169Z"
-description: 평소에 Git Merge 방식으로만 개발했었는데 이번에 Git Rebase 방식도 알아야겠다는 생각이 들어서 포스팅하게 되었습니다.
+category: "GIT"
+draft: false
 ---
 
 # 서론
