@@ -1,38 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JoDMsoluth Blog]]></title><description><![CDATA[JoDMsoluth Personal blog.]]></description><link>https://awesome-lewin-d3de30.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Dec 2020 17:07:11 GMT</lastBuildDate><item><title><![CDATA[Git Rebase, Git Merge 차이]]></title><description><![CDATA[서론 아마 Git Merge방식은 Git을 좀 써본 사람이라면 누구나 사용해 본 방식일 거라고 생각합니다. 저는 rebase…]]></description><link>https://awesome-lewin-d3de30.netlify.app/git-rebase/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/git-rebase/</guid><pubDate>Thu, 31 Dec 2020 00:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;서론&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[JoDMsoluth]]></title><description><![CDATA[JoDMsoluth Blog]]></description><link>https://JoDMsoluth.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Nov 2021 08:37:57 GMT</lastBuildDate><item><title><![CDATA[Git Rebase, Git Merge 차이]]></title><description><![CDATA[서론 아마 Git Merge방식은 Git을 좀 써본 사람이라면 누구나 사용해 본 방식일 거라고 생각합니다. 저는 rebase…]]></description><link>https://JoDMsoluth.github.io/git-rebase/</link><guid isPermaLink="false">https://JoDMsoluth.github.io/git-rebase/</guid><pubDate>Thu, 31 Dec 2020 00:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;서론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%A1%A0&quot; aria-label=&quot;서론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서론&lt;/h1&gt;
 &lt;p&gt;아마 Git Merge방식은 Git을 좀 써본 사람이라면 누구나 사용해 본 방식일 거라고 생각합니다.&lt;/p&gt;
 &lt;p&gt;저는 rebase의 용도를 처음 들었을 때 굉장히 어렵고 고급진 방법이라고 생각을 했는데요. 공부를 시작하고 나서는 익숙해지면 정말 쉽겠다는 생각이 들었습니다.&lt;/p&gt;
-&lt;h1&gt;Git Rebase&lt;/h1&gt;
+&lt;h1 id=&quot;git-rebase&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-rebase&quot; aria-label=&quot;git rebase permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Rebase&lt;/h1&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;re + base&lt;/code&gt;는 말 그대로 &lt;strong&gt;base를 재설정한다&lt;/strong&gt;는 의미입니다. 여기서 말하는 base는 ‘branch’에 대한 base입니다.&lt;/p&gt;
 &lt;p&gt;아래 사진에 다음과 같은 branch의 commit 구조가 있다고 생각해 봅시다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 739px;&quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1fd3ca0ad90411531db926f20618e5d9/f1d1f/image1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQoz21STU8TURSdH4ZEVwrBBcSNC1cSE6MxUhtIRF0Y4h9gAW78Fa5ETTEkEoU2UMROO9CZMq1MS6ftdL4/3vHOozNOzZzkZs597855993zBBAYYzwSHsP1PNiOC8/3OXddD0EYIq8+4TGEbBLzMIo4FyUFu/sVnNabqP6WsPfjCBcdbepQLpYRjUNINqKJUIyIRdM5cT8IkEXSLcCm1gVjbOHFq22svNyCPjIxNCwUX7/na3E+GtsorG/zvD8cw3Z9rG98wNPVTWg9HfGx2sDEhaajO7AgSM02ZucKmLmzgqOagmpDxex8ATcXiigdNnBcVzFz+zluUE35VIb8R8etu0Vef1CpwSXFmtLFz6oISe1dX/nLtzJ2Sodp2593y/hKa2M3oKsxzndKB+n+3n4VHz99T/MwYpNR5ZiSzS0S7BvO1Cyzs82awWjuqSlhGPFgkwGHNHBGP9okOHIC+IYBazBMhTzThNkf5JuS1xnnFAF95PM2nj3awJOHb6Ff9mBbDoqP32H5wRv0FBU+1avdEVqXV9B081rwf2SfUeeshcXFVSwtreG8JkMjN+/fW8P8QgHKiQiHDhVbZMqxiLP2Vb7gRDXtWjmpQyYXE3QaTUiVX/9K0/cL/AXmfisxRwDUYQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB40lEQVQoz31SzWsTQRTfP0gPvYnQg70XelPRivRDahG92IOF2oIUL00pov0TPJiCWvBSUao0he7GSFJDXErS0iYmLskm27ibnZ2Z/Tmzm922S/TB43395s37UnzfR8SSIt0lJGDPoyDEA/E8cM4vYJK6JCUZiB5l8yVksgWUDg7xfV9HRs3D7JyewyZlyIoEREkiStqUUnD/zHe+oiQpRycNTD1MYeVlOnCUj+qYfrSK1KuN2Jbx1fUNyDTVehOzj19gOfU6GIfrcTTMLmpGG03LgbK1ncXlq/cwdmsJhmVjc0vF0PAMxm4vQa+Z2Pyo4tKVaRFfhNGx8SmzL+L3MXpjAQ2jhZZN8aPyC1pBR7nehuKJdtLvv2DvWylu7827bWi5n7AJR88lSAtb7cd90frbDzv4upuP22c8HIGUyv9m1/7jotvzYpsxfmF+Eu+HWft+P9wyZUxkPzsJSlkAsmwCR8zI7VhgPTdO1LNOQR1n8FIGbS36jQiR14q4c/0Jni+sy5JQrZxg4uY8FufWwGwbXcJQNTpiKWYwY2XQL8E9srDivc8qhkceYGbyGbpiaTm1iGsjs7g7/hROswXTYSiWa9DErR7KpfzrnoJD7evF3Rx+V47jmK4VUNUrETLGcfHmL7FUKvMo9SqoAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;image1&quot;
         title=&quot;image1&quot;
-        src=&quot;/static/1fd3ca0ad90411531db926f20618e5d9/f058b/image1.png&quot;
-        srcset=&quot;/static/1fd3ca0ad90411531db926f20618e5d9/c26ae/image1.png 158w,
-/static/1fd3ca0ad90411531db926f20618e5d9/6bdcf/image1.png 315w,
-/static/1fd3ca0ad90411531db926f20618e5d9/f058b/image1.png 630w,
-/static/1fd3ca0ad90411531db926f20618e5d9/f1d1f/image1.png 739w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        src=&quot;/static/d92265a0db99b9889354607c5e98b394/f1d1f/image1.png&quot;
+        srcset=&quot;/static/d92265a0db99b9889354607c5e98b394/5a46d/image1.png 300w,
+/static/d92265a0db99b9889354607c5e98b394/0a47e/image1.png 600w,
+/static/d92265a0db99b9889354607c5e98b394/f1d1f/image1.png 739w&quot;
+        sizes=&quot;(max-width: 739px) 100vw, 739px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;feture라는 브랜치는 master 브랜치에서 파생된 브랜치입니다. feature를 작업하는 도중에 누군가 C-D 커밋을 master 브랜치에 푸시했습니다.&lt;/p&gt;
 &lt;p&gt;Merge 방식을 사용했던 사람은 아마 master 브랜치를 pull 해서 merge하는 방식을 사용할 것입니다. 하지만, 우리는 발상을 달리해서 E-F 커밋의 현재 base인 B를 D로 바꾸는 것으로 코드를 합치겠습니다.&lt;/p&gt;
@@ -42,36 +33,27 @@
 &lt;p&gt;결과적으로 아래와 같은 모양이 나옵니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 800px;&quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/5a190/image2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 36.075949367088604%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABSUlEQVQoz21Qv0/CQBjt/+XkZBzcjHExDu64OBB242IMk8ZBBzcXV3dDSMREqxQJpLQ0UKi0tJIrxXJ3fV4P+e1LLnn3fcn78SnNloPCs4YU5U8TalmXvFiqoN5oIxH8qfiBjtOX83hMQRlDki7ENpmQGZT81QM2d07gDYbIZC9xlLmAT0bY3s3hLH8Ppz/AxtYxru8eETFArVnQ2x640EnFVp/i9Hy8aw2pbjQ7qOktybWqCbvrSa5qOrq9AOEPlX/G+SzZVGiSViScRl2MTtlyjUk5gIyEIGfzIaVLe1k5FeLCMQX/c45FkrdqAKcXgYmbvVZ8eEGMetXA4X4OJXFTy7BxsJfFS0GFSyLUTBskGs8TLqbklMFohfgexEiEScMiCIcM/peH89NbmHULgRsIfgNdmIQxgxsQRDFdrzyvnqwUXj/Df/gF8DUMK4J6WNoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 36.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQUlEQVQoz4WRu0sDQRCH73+zsxEEG0W0t1UbH6idFjZCQMVCQYgIKQSbqGhjEcQQNRhJNMaYBzHPuyRnNnd7n3shbwL+YGBmduabYVYzzQY/hTKuKnqNUtnAcSTpbL6bz+VLCNFkUI6qcxiW5jm6YHxqhYJeZ3H9kIWlPSr1BpOzm+x6fORKBmMTyxx7rxCq/+X9m3imhGyzhqFa8CnG6flNK7i+C3LpD+CWnPluCTxGVKPDiddPMBynJmzKRp2qGujmbVu2gP2mMULSYaRc4H/SpOxNklLixkI1vid0dc9fpG0Ti1co64KvRIadrQOikU/yuSLbG/vEXuPopiCZLWAKa3DDzj0s9fAcNdSnKKBlEXpTQMMi9ZFkfmaNYCBMSsHnpld5uA9RrAsS6TxVs9kDdmDdI6vNGOUL0dug32/rD0OhC+v8WG6yAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;image2&quot;
         title=&quot;image2&quot;
-        src=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/f058b/image2.png&quot;
-        srcset=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/c26ae/image2.png 158w,
-/static/7dfe4726b14c2aa6b8996a24b309d773/6bdcf/image2.png 315w,
-/static/7dfe4726b14c2aa6b8996a24b309d773/f058b/image2.png 630w,
+        src=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/5a190/image2.png&quot;
+        srcset=&quot;/static/7dfe4726b14c2aa6b8996a24b309d773/5a46d/image2.png 300w,
+/static/7dfe4726b14c2aa6b8996a24b309d773/0a47e/image2.png 600w,
 /static/7dfe4726b14c2aa6b8996a24b309d773/5a190/image2.png 800w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;h1&gt;Git Rebase 심화&lt;/h1&gt;
-&lt;h2&gt;1. Interactive Rebasing&lt;/h2&gt;
+&lt;h1 id=&quot;git-rebase-심화&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-rebase-%EC%8B%AC%ED%99%94&quot; aria-label=&quot;git rebase 심화 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Rebase 심화&lt;/h1&gt;
+&lt;h2 id=&quot;1-interactive-rebasing&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-interactive-rebasing&quot; aria-label=&quot;1 interactive rebasing permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Interactive Rebasing&lt;/h2&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Interactive Rebasing&lt;/code&gt; 은 Rebase 를 실행하기 전, 내가 &lt;strong&gt;작업 중인 feature 브랜치의 commit history 를 조작&lt;/strong&gt;할 수 있게 해줍니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; rebase -i master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;각각의 commit 들의 앞에 붙은 command 에 따라 조작이 이루어지며 각 command 는 설명 부분에 나열해보겠습니다..&lt;/p&gt;
@@ -81,7 +63,7 @@
 &lt;li&gt;fixup : 해당 commit 을 없애고 코드 변경 사항은 바로 윗 commit 에 포함 시킴&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Interative Rebasing 은 보통 불필요한 commit history 를 정리하기 위해 사용됩니다.&lt;/p&gt;
-&lt;h2&gt;2. Local Cleanup&lt;/h2&gt;
+&lt;h2 id=&quot;2-local-cleanup&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-local-cleanup&quot; aria-label=&quot;2 local cleanup permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Local Cleanup&lt;/h2&gt;
 &lt;p&gt;작업 중인 feature 브랜치의 commit 몇 개만의 history 를 수정하려면, git rebase 의 base 를 master 브랜치의 끝이 아니라 feature 브랜치의 이전 commit 중 하나로 정해주면 됩니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; rebase -i HEAD~3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;위의 명령어로 HEAD 에서 3 단계 전의 commit 을 base 로 잡고 그 위의 commit 부터 history 를 re-write 할 수 있습니다.
@@ -89,52 +71,42 @@
 &lt;p&gt;커밋 수정을 완료했으면 다음과 같은 방법으로 Rebase할 수 있습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; merge-base feature master
 &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; rebase -i origin-base&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Rebase를 사용하는 이유?&lt;/h1&gt;
+&lt;h1 id=&quot;rebase를-사용하는-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#rebase%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;rebase를 사용하는 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Rebase를 사용하는 이유?&lt;/h1&gt;
 &lt;p&gt;근데, 우리는 왜 쓰기 쉬운 Merge 방식을 냅두고 Rebase 방식을 사용하는 것일까요??&lt;/p&gt;
 &lt;p&gt;결론부터 말하면 브랜치의 히스토리가 깔끔해지기 때문입니다.&lt;/p&gt;
 &lt;p&gt;아래 사진은 극단적인 예시이기는 하지만, 비교하기에 적합한 사진이라 넣었습니다. 커밋 히스토리가 정말 깔끔해지지 않았나요??&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/2dc7d/image3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 73.41772151898735%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAARlAAAEZQAGA43XUAAACFklEQVQoz4VTbY/SQBDu//e7HzRRTy8mGjESNWeiuYNWgoDyEigH5R0K5aXHttttu93utk5bQM54cdJsnt3ZmZ2Z56kUBAEhxPd9LkScmoiiDETHkwSndgJhGAKWdhujXFJkWY6OMf81IYTjOHBfyten1+0pIe6TYs91vc0ePy32MPF8B6svHhO0J67L43jyKbeqVwGMrz4sS4WsLmlgoIVpw+amOXSIiwj90dehBt8l6+ZPzlhW0VptOZsVgM1tB+vzrBPprBqmdCYXctfem48+NxAm4IdZgIfz0EsBrJTSU4QkjpMAM5Hl+FQ37bIGj0TTjeW4Pg25tjQFDxkLklaFON2XzicBk4/jsDzcfm3PYh48l2/Hhqnv0MuSxjm3bRsKAWr+HQw5BQsa011rtoPtN1X3aLBCpKQZHnHS1NACz3g6BJ84zBi+VvWbzizi7NX3vmnhnr57XxtFAnQgINIDStL+/375IIMH6I3OXBmQjKVeLBR+1aosreq+90GDFlxCpP7SHC6M1nCBiD/eYuR6k611R7wVwoblbG2i75N1btr6HV4jZ25iI1mt5OW3lVFlsHpXHTfHxrOCWtMWl0pX6c5zlf7HWu9LY/Sm3L+qjy4V9bXSzte0i6Kar2q56uBPz/eFDVwyxuiJgSgClmnai0iknXBOM5Ec/NmXzZ3S5FdLTyBvHHKOMWZhCDhRLgW1JGz/BiYMUTuTC7NBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 73.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHklEQVQoz41T227TQBD1//MDPEDVUiFVAspNBYSoQpyQtgk0UZqEuCZpnDp2Eru+7K7ttfdixnYaBUQlRtZ41rOzM+ectULTlJCIUppxkee5zHMmhCzeuWAsvzfJuRRiE/DCIFacpX3WbKiNhpQy/z8TQmCMYb/yvmvUBgY0f1LXoiheeWhP1VAUJxiNDh4T34MUdLk5eW11OxBMP721zurFCEIomuUZTghNv3R1TCIP09bYhGUSEfvygmdpNZF91cNLC4Ll6ArdzkokUtmZJlMH0/36KPScRyddHxHIJ0kCGc5ZXAbggZ1thSKk3KJ1/QBF1HTDb9oCDp6tAhwllHF94QrOsiwroAqx3a/sMpGmKbRp6avPfSNndE8dTyzXdPyDpgb0hmEIgxBC/l0MZwLInuH05w4sT4eLmGa2H7X0ZUQwpWkJYaPTpljeTy5Kfzo0a4NZzrPDpuYGaGw6x52J5CC/gLIYJCnx/925OuIhueVOqgoUe2E26l8vv7ezAnD+Z/ZBA3YiQhSYSjcWPX3ukWS6Rn4U36yDOxJbPrIDvA6J6RV+7obmHVr6eO4iG7wTFJ2PLn6d64uX7Ulvaj+tDTrXt8/UUWM0f3U+ftf5+bE7OWqNP/yYHKqD52r/Tft6vz4E/6Kt72LenRO0ZCyrUAhYgQgso+UeUdBaZGl1SQqSt0/FO6gCepZfgMWccY4QyhiT5e+W0BTjQu3fk8tQ786pLPgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;image3&quot;
         title=&quot;image3&quot;
-        src=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/f058b/image3.png&quot;
-        srcset=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/c26ae/image3.png 158w,
-/static/404ec8bf0e538a2033a5e1ac11deb292/6bdcf/image3.png 315w,
-/static/404ec8bf0e538a2033a5e1ac11deb292/f058b/image3.png 630w,
-/static/404ec8bf0e538a2033a5e1ac11deb292/40601/image3.png 945w,
-/static/404ec8bf0e538a2033a5e1ac11deb292/78612/image3.png 1260w,
+        src=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/c1b63/image3.png&quot;
+        srcset=&quot;/static/404ec8bf0e538a2033a5e1ac11deb292/5a46d/image3.png 300w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/0a47e/image3.png 600w,
+/static/404ec8bf0e538a2033a5e1ac11deb292/c1b63/image3.png 1200w,
 /static/404ec8bf0e538a2033a5e1ac11deb292/2dc7d/image3.png 1760w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;h1&gt;Rebase를 언제 사용해야 할까?&lt;/h1&gt;
+&lt;h1 id=&quot;rebase를-언제-사용해야-할까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#rebase%EB%A5%BC-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C&quot; aria-label=&quot;rebase를 언제 사용해야 할까 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Rebase를 언제 사용해야 할까?&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Git Rebase 는 다른사람과 같이 사용하는 master, develop 같은 브랜치에서는 절대로 사용하면 안됩니다.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;다른 팀원과 공유하는 브랜치를 rebase 할 경우, 해당 브랜치는 내 로컬에서만 전혀 다른 history 를 갖게 될 수도 있습니다.&lt;/p&gt;
 &lt;p&gt;이를 다시 다른 팀원들의 동일 브랜치와 합치려면 git merge 를 통해 새로운 merge commit 을 생성하는 것이 불가피하고 그뿐만 아니라 history 상에 동일한 code 변경 내용을 가진 history 가 중복으로 존재하게 될 수도 있습니다.&lt;/p&gt;
 &lt;p&gt;이를 해결하기 위해서는 &lt;code class=&quot;language-text&quot;&gt;Git Revert&lt;/code&gt;를 활용하는 것을 고려해야 합니다.&lt;/p&gt;
-&lt;h1&gt;결론&lt;/h1&gt;
+&lt;h1 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;만약 master 브랜치가 매우 빠르게 업데이트되고 있고 그에따라 feature 브랜치와 계속해서 merge 해야한다면 rebase 방식을 고려해 보는 것이 좋을 것 같습니다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git log, git bisect 또는 gitk&lt;/code&gt; 등의 명령어를 사용한 커밋 로그를 보는 것이 쉬워집니다.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[깃 플로우 톺아보기]]></title><description><![CDATA[서론 이 게시물은 우아한 형제들 git-flow 자료를 참고하였습니다. 이번에 10명 규모의 스타트업에 프론트엔드 신입 포지션으로 입사를 했습니다. 현재 입사를 하고 한달째 되었는데요.…]]></description><link>https://awesome-lewin-d3de30.netlify.app/git-flow/</link><guid isPermaLink="false">https://awesome-lewin-d3de30.netlify.app/git-flow/</guid><pubDate>Wed, 30 Dec 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1&gt;서론&lt;/h1&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[깃 플로우 톺아보기]]></title><description><![CDATA[서론 이 게시물은 우아한 형제들 git-flow 자료를 참고하였습니다. 이번에 10명 규모의 스타트업에 프론트엔드 신입 포지션으로 입사를 했습니다. 현재 입사를 하고 한달째 되었는데요.…]]></description><link>https://JoDMsoluth.github.io/git-flow/</link><guid isPermaLink="false">https://JoDMsoluth.github.io/git-flow/</guid><pubDate>Wed, 30 Dec 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;서론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%A1%A0&quot; aria-label=&quot;서론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서론&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;이 게시물은 &lt;a href=&quot;https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html&quot;&gt;우아한 형제들 git-flow&lt;/a&gt; 자료를 참고하였습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -146,7 +118,7 @@
 &lt;p&gt;여기서 아시는 분들은 아시겠지만 &lt;code class=&quot;language-text&quot;&gt;git push origin +develop&lt;/code&gt;처럼 브랜치 앞에 &lt;code class=&quot;language-text&quot;&gt;+&lt;/code&gt;를 붙이면 푸시하려는 브렌치의 기존 커밋은 지워버리고 강제 푸시되는 키워드가 있습니다. 제가 그렇게 해서 develop의 이전 커밋들을 날려먹었습니다.&lt;/p&gt;
 &lt;p&gt;이후 사수분께서 &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;를 써서 브랜치 구조만이라도 복구를 시켜주셨는데요. 결국, 이번 일을 계기로 &lt;code class=&quot;language-text&quot;&gt;git flow&lt;/code&gt;를 다시 공부해야 겠다는 생각이 들었습니다.&lt;/p&gt;
 &lt;p&gt;서론이 길었지만, 결국 git flow를 배우는 거는 같이 협업을 하는 사람들을 위한 매너를 배우는 일이 아닐까 생각합니다.&lt;/p&gt;
-&lt;h3&gt;협업 할 때 지켜야 하는 매너&lt;/h3&gt;
+&lt;h3 id=&quot;협업-할-때-지켜야-하는-매너&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%98%91%EC%97%85-%ED%95%A0-%EB%95%8C-%EC%A7%80%EC%BC%9C%EC%95%BC-%ED%95%98%EB%8A%94-%EB%A7%A4%EB%84%88&quot; aria-label=&quot;협업 할 때 지켜야 하는 매너 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;협업 할 때 지켜야 하는 매너&lt;/h3&gt;
 &lt;p&gt;배달의 민족에서는 협업할 때 지켜야 하는 매너가 몇가지 있다고 합니다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;작업을 시작하기 전에 JIRA 티켓을 생성합니다.&lt;/li&gt;
@@ -160,36 +132,26 @@
 &lt;p&gt;아래 사진에서 보면 매너를 지켜야할 upstream branch는 파랑색 repository를 말합니다.
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 951px;&quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/9b379/image1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAACLUlEQVQoz41SXU8TQRTdf2jiCyTqgya+SkKMxjcxBVJIeJNQoAaRNlIxStLEh8Yi9mMphWKtTUuRfoLsbrdu2/3ednucncQpxph4JydzZ849d+/dO5zrunAc5y/YtgNggP28iGfhOvyRc8yEauTchmdDd4TRaET937tnXL/fR7fbhaqq8HwPnt/rqxhYKrb3mrjpK2BiJokbT4+xkxD+SHgdNKEnHg6H+JfJPQupry2k8k2kyS4pBr33OiO10UXPI5eCVugOXXppGw5MzYKhmRBFEZ1OB45lwdENaIqCoWliYNtQiC+KAvo9lWoM1Ry3rJNgSRFQaGWRrSSRq6ZRFSqgHRBcyk1kKgl8PP6AdPkTLtoNJhaVK5zUD3BI+C+NDNVxjjkgSXg8DN/Bo1d3MfVyEq8PAkwUL0YxtTmJJ+H7eLAxgdi394zLVj9jOnQLj0P3ML11G1vJ5+Asw0Lt6gzvDjexnQgikg6SivaZqNTK4w0fZFyxecK4qnCKt5kNRAi3w78AX94DJ8sy+4fdrsqCr0/OM0Xp/xdHh2LpOgy5jXa9DlUQYPZ6LMDSNGiSCLlRhy5JsNTxR22i09sSpHoNGhmSQZ4fp5EpNrNZfF9aAj87i8LcHC6jUSaSeB5lvx9pnw8FwkupFOM6+Twqi4vIzs+jtLCAxu4uOK9wsVhEbX0dxdVVnK6s4Ec8Pn6HuRzOyX0hEEB5eRntoyPG/SyVUF1bo7ozgotYDL8Ad1Eb0E+54ZQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAACK0lEQVQoz3WS/U/TYBDH+zcak0VNiPFXoyYaYmL8gZeFSELCPwCMbSCaEQ1GIBlD42AwxtwQ597KBnQv0O7Fdn1b27Vfn3ZbBxovud6T3n3uuefuKNM0oWnaP6p2NcDSEctweB08x9RKEa/8JWwlWNjSMy1YluWch9YWShRF8DwPWZYhSZKroiihp8nYPKzC8yaD+94Y7kwlEdytO6BpjpIN1Ulow4Zh4G8ZBnQUHSeFOlK5KtL5Ohq80q+w1xskMkG+MIm11anQ0PsJNQIrogpVVsFxHJrNJrqKCl1WILTajtVJK+wXsSwLgRcIY0AS5NGTFQKw7SskylHsZcOIFSPIVX6QEvsBtSaDaC6M7cRHfPm5hdJVwYU5/hqH9FeHOyjuOhyldw1kmDTG18bwwj+GJz4PlqLzLmRf8NTvwcuVR3i8dBcb31dd3ylzjOerDzAefIhngXvwfZsHpSpd1BoMwqcfsBF/i8/Jdzim91zogqWxmXrv+n6Ry4dSbzHYTofw6WhtwO2DsvtkGL3+ADrKraHcXAeel/7rE272UCRTVshgpHoNHF2EcHkBqcENWwi100GnwhAf7Vi53Xbhrr1e1arD8QOOkskSM6kUzubmcDAxgZPJSVTW12EOoGYyifzMDPZtH9HrSMRN+DubBT07i6PpaWS8XlyGQqAcqFTCeSCA/PIy6MVFVHd23ApbBCr7fMgRX3FhAWw8PmpDuYwy+V/w+3FGYmzuD2y0G3NcMLG0AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;image1&quot;
         title=&quot;image1&quot;
-        src=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/f058b/image1.png&quot;
-        srcset=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/c26ae/image1.png 158w,
-/static/7cb458b5468198b7fbc11ace32f7501e/6bdcf/image1.png 315w,
-/static/7cb458b5468198b7fbc11ace32f7501e/f058b/image1.png 630w,
-/static/7cb458b5468198b7fbc11ace32f7501e/40601/image1.png 945w,
+        src=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/9b379/image1.png&quot;
+        srcset=&quot;/static/7cb458b5468198b7fbc11ace32f7501e/5a46d/image1.png 300w,
+/static/7cb458b5468198b7fbc11ace32f7501e/0a47e/image1.png 600w,
 /static/7cb458b5468198b7fbc11ace32f7501e/9b379/image1.png 951w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        sizes=&quot;(max-width: 951px) 100vw, 951px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;h1&gt;Git Flow 전략 톺아보기&lt;/h1&gt;
+&lt;h1 id=&quot;git-flow-전략-톺아보기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-flow-%EC%A0%84%EB%9E%B5-%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0&quot; aria-label=&quot;git flow 전략 톺아보기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Flow 전략 톺아보기&lt;/h1&gt;
 &lt;p&gt;Git-flow의 브랜치 종류는 프로젝트 구성에 따라 다양하지만 대중적으로 사용하는 브랜치는 다음과 같습니다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;master : 제품으로 출시될 수 있는 브랜치&lt;/li&gt;
@@ -201,52 +163,45 @@
 &lt;p&gt;이 브랜치들은 아래 그림과 같은 순서로 git-flow를 진행합니다.
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1150px;&quot;
     &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/image2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
+      &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 132.27848101265823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAIAAAA44esqAAAACXBIWXMAAAsSAAALEgHS3X78AAAD7ElEQVQ4y21UaXOiWBTl//+TznyY6Zqqjj1Jq51oXBIQVASUHRdElH1XMwdetqma98G6ct/dzjnvUq/vJ01T27av12tRFEmS4Mvh4Oi6DiPLMt/3YZzPZ9gfIdTlcgnD8Gsw7m23WxhVVSERXGVZwgsjzzL34MD1FowikiRdm3NpDr6+e18/7pHvfhxvD25R5EEQxHFMsSy73+/hQBFUqCq0VkTRCf/yPI+b47ruwXXPRc6a659TfjZhfj88cBxHqapqWRYJxkGB0DeZ5+9BmGAc5D2dTqiDttHF8ehmaYr7giBsNhsK6XED5RzHUTXVdb3jwVCkHml1vd5omqYoCnDCgEiERj4BAzaDp6cFDs93221BkLyjpSwHZGREdrvd0WgYhSEiUd/zPJIXjVBAGO7xeAwfL/Cz+cLU+ZXwEISxaZrI2e/1ev3+dm8XDSqnJpgATKENoO35ntClZW7BPXO6NlOkx/lc+OPm24Rh/CDQlitAVBcsi7Th9a3tKIpkWYa1eGA0VjJ4JS8jTZnJsrJeW5g2L4rTzjboSRxH44U4klZHxwFmu92OAqSiKCLYellpY8EWNknmjvp/A7kwDCAYYIkO86rCneXOnujm5OW51WoxDEOBBgwGR1xm+nS5Fcys8A2VxZeqAu8lgSdtBHsp0XcSxfHxeETLn8En39tMVZu3FF3U1fmbvK5Q+AFzoU+kAK9hFP3PzHDbzt4PY03mwHMcZ7qlGo48m85brdvxaERUhGKfVGEqSRSRfjgYgjOGprnpzPPrG6op/57cySuFZujpdIrhURmMfmieAulo++i6vx46P25/9B57u90+DOsJ98ddf9YmD44ICzr7TzDaBh+wuLuRD/Vlueuoo6c/gyDZ2BYjjkRRanfaQoMLglHmMxiKJQ9jM1Hc1VqmBdsxDJWrl4Fvd9mfpmGxHAu1kcfjvSusDkYyyBtWUmWbpbEV9er6GkX1urB25mjeI1fJe8abJSvlTZ6oTHYNqDLYpbNYh8mBpTuWuVlIc9kW0iTFSyTb5lyWYRNM1kXN85znYYV5bMxWm5mR5gd12ROE5XAwUFYqEEZB0BEFgaTrS2sNA+sByNUPQ1VUBGuLlb91T9Y+SvMkLUVRuL297XTapCYWDH5pzWgLEvfycn9/T9M0BaENh0M45LuJf/JOYfAy7kNhDDO5ubn5/td3ghCK1ymKIotjdGEYBopTWCuEqnOj3Kq6LvihLHZ4XvznrvU46JZFSZZuTTi251eeP4R6Ob+tTjBvrddFXtKz8ZPURsIojohIqrII/S+b5Ot+BSP49Vzl+elbFOfva/iKdGg+DkNGEBi9JvzShPwL5BCbiibKO7AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 132.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD/klEQVQ4y21UaXfiRhDU//8d+ZKXPeLnDVmD44DDscYGJIEkSwgdXEK3hG6QcEoM6yMv86k1o+ruqapp6uXnSpLE8zwEx+OxKAoElmUqioIAn/v9HkFVVYhPpxOBUOQbURiGm80Ggeu6JMB+lmUIDodDHMdkxzCMsiwv4CAIRFEkWbFOPxc5/k+Q54Xn+wCn50UxDPOaFQ3jACkOhwIBCub4vShQAO1Uh+LZMD+PaJGb9fv96XRK0TRt2zYBA4MCe19nxw3P3wNjmjvAcKMoiqqytBzHC0NVVYfD4bMgUGACxwD7vr/dbqIotXay/NwjFzHOa7VaoUl04bluHEWvHFPL5XIymSwWC5ZhOu22ouiuo6nykNxUVZX7+3vUQWXHcXBBogjhhZJludVqAW97zuPTUHieb5a8LHaLogzDQJIkgDudzs6ygAcppM0L2DRNnufVhaL/4EVOYJnZXBwp8x+CIH3+9Gk0GqE1XG88rHs5VVUchm9tg631eo2Ibj8oI15h5X20VeUHgKcsCxXBvm/shJvbJE3V5VLU9DSOwWXg+9Rut9N17VRWi1tGeRJsxUjzaDJ+MIwd+rQsC1TVwsItZTmWlW9TfkbTzWbr8fGRApnEg2EaLZ54VwMrS45uVNVFedJhfrYapC+SBPUEQcB1ajCoxkEQ75U+t51phg12rPrXsgQYDONqoAYMwTbh+ztjV9d1RFvD8GwnDjNR6Iuzm7yo4iTKDxnkaLfb8BJ0RjpI8MY2ekADEAA6T+gJGOI4zvWcQ3GccKM7usHQzN3dHQQjl4fab5VXyyVyo3iz1bq+vu52u4qqRVHtdjewB+x9eSxhDCIvWCBevoBJ5SxNB52eJM83huE6xlxi4yjVN+oD/4/nerAKapC3+QGMlMbOeKlO4h9PmbO3V856xY6HX0/Vi+ltO3STodlGowEL/g8YapPvKIl1TlZnYloUUZRgxwvdx9mgfiGnCmyRp4L/P4CJMEEcasNnV9omRbbdbKJ9xM+nPf72eCiL8/OuJxQIc70PUmmaVj/JMNAY0dEc35eHvV85XhIEHqnrl+h5sAOGXJ6me899HTtvJnESfzWSLH5VVHmahNDs5uYG5EfnB5zl+THPBxz/+4RV5hLNMDAZhZ5X69WpOrFfuhg5XuBt1kYQRJgyV1dX37//iSFBRmpt4SRd2o4kisQ2lKaqg0HNiquZYb2Sv1q/CdNmr/fw9cuXxrcLGDwTb0fBO4ehdUJGVe9U53lk2vbKtty/u7cdpok9sI1F3E4myYWwt+FaXf6wLX3ydJfEmWFtVFPKsxxegJxgDo3BVK+TmHp5v85baWyu9XFZ57nkrYfx8XjIsj47+2U8PStfH/0LhR7TXLWE/80AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;image2&quot;
         title=&quot;image2&quot;
-        src=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/f058b/image2.png&quot;
-        srcset=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/c26ae/image2.png 158w,
-/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/6bdcf/image2.png 315w,
-/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/f058b/image2.png 630w,
-/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/40601/image2.png 945w,
+        src=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/image2.png&quot;
+        srcset=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/5a46d/image2.png 300w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/0a47e/image2.png 600w,
 /static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/image2.png 1150w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        sizes=&quot;(max-width: 1150px) 100vw, 1150px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-  &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;먼저 master -&gt; develop 브랜치 순으로 프로젝트 초기설정을 합니다. 그러면 각각의 개발자들이 develop 브랜치에서 포크하고 이슈/기능 단위로 업무를 가져가서 feature 브랜치를 만듭니다.
 feature 브랜치는 언제나 develop 브랜치로부터 생성되고 기능구현이 완료되면 develop 브랜치로 pr을 날려서 코드를 합칩니다. 그렇게 develop에 머지가 되었다면 qa를 하기 위해 release 브랜치를 만듭니다. qa가 성공하면 release 브랜치를 master와 develop 브랜치로 머지합니다.
 마지막으로 출시된 &lt;strong&gt;master branch에 버전 태그를 추가&lt;/strong&gt;합니다.&lt;/p&gt;
-&lt;h1&gt;Git Flow 전략 깊게보기&lt;/h1&gt;
-&lt;h2&gt;1. 티켓(기능) 처리하기&lt;/h2&gt;
+&lt;h1 id=&quot;git-flow-전략-깊게보기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-flow-%EC%A0%84%EB%9E%B5-%EA%B9%8A%EA%B2%8C%EB%B3%B4%EA%B8%B0&quot; aria-label=&quot;git flow 전략 깊게보기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Flow 전략 깊게보기&lt;/h1&gt;
+&lt;h2 id=&quot;1-티켓기능-처리하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%ED%8B%B0%EC%BC%93%EA%B8%B0%EB%8A%A5-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 티켓기능 처리하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 티켓(기능) 처리하기&lt;/h2&gt;
 &lt;p&gt;하나의 기능을 혼자서 개발할 수도 있지만 기능이 크다면 같이 개발해야 하는 경우가 발생합니다.&lt;/p&gt;
 &lt;p&gt;또한, 하나의 기능을 여러개의 이슈로 나누고 커밋은 하나의 이슈가 끝날 때마다 해야합니다. 이렇게 복잡한 상황속에서 feature 브랜치에서의 협업이 가능하도록 &lt;code class=&quot;language-text&quot;&gt;git rebase&lt;/code&gt;방식을 고려해 봅니다.&lt;/p&gt;
-&lt;h2&gt;2. develop 변경사항 feature로 가져오기&lt;/h2&gt;
+&lt;h2 id=&quot;2-develop-변경사항-feature로-가져오기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-develop-%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD-feature%EB%A1%9C-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&quot; aria-label=&quot;2 develop 변경사항 feature로 가져오기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. develop 변경사항 feature로 가져오기&lt;/h2&gt;
 &lt;p&gt;작업을 할 때 브랜치의 수명은 되도록 짧게 가져가는 게 좋지만, feature 브랜치에서 기능을 완료하는데 해야 할 작업들이 많아서 오래 걸리는 경우 들이 있습니다. 그러다 보면 develop에 추가된 기능들이 필요한 경우가 종종 생기게 됩니다. 그럴 때는 feature 브랜치에 develop의 변경사항들을 가져와야 합니다.&lt;/p&gt;
-&lt;h2&gt;3. 완료된 기능을 이번 출시 버전에 포함시키기&lt;/h2&gt;
+&lt;h2 id=&quot;3-완료된-기능을-이번-출시-버전에-포함시키기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EC%99%84%EB%A3%8C%EB%90%9C-%EA%B8%B0%EB%8A%A5%EC%9D%84-%EC%9D%B4%EB%B2%88-%EC%B6%9C%EC%8B%9C-%EB%B2%84%EC%A0%84%EC%97%90-%ED%8F%AC%ED%95%A8%EC%8B%9C%ED%82%A4%EA%B8%B0&quot; aria-label=&quot;3 완료된 기능을 이번 출시 버전에 포함시키기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 완료된 기능을 이번 출시 버전에 포함시키기&lt;/h2&gt;
 &lt;p&gt;하나의 feature 브랜치가 완료되면 feature 브랜치를 이번 출시 버전에 포함시키기 위해서 develop 브랜치에 머지합니다.&lt;/p&gt;
-&lt;h2&gt;4. QA 시작하기&lt;/h2&gt;
+&lt;h2 id=&quot;4-qa-시작하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-qa-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&quot; aria-label=&quot;4 qa 시작하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. QA 시작하기&lt;/h2&gt;
 &lt;p&gt;이번 버전에 포함되어야 할 기능들이 모두 완료되었습니다. 이제부터 출시 담당자가 해야 할 일이 많습니다. 출시 담당자는 QA를 시작하기 위해 먼저 release 브랜치를 생성하고 upstream에 push하여 release 브랜치를 공유합니다.&lt;/p&gt;
-&lt;h2&gt;5. QA 중 버그 수정하기&lt;/h2&gt;
+&lt;h2 id=&quot;5-qa-중-버그-수정하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-qa-%EC%A4%91-%EB%B2%84%EA%B7%B8-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;5 qa 중 버그 수정하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. QA 중 버그 수정하기&lt;/h2&gt;
 &lt;p&gt;QA 중 예외 상황이 발생할 때마다 버그 티켓이 하나씩 생성되는데 이 티켓들을 모두 해결해야만 앱을 출시할 수 있습니다.
 버그 티켓들도 티켓이기 때문에 ‘1. 티켓 처리하기’와 같은 방법으로 처리합니다.&lt;/p&gt;
-&lt;h2&gt;6. 출시&lt;/h2&gt;
+&lt;h2 id=&quot;6-출시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#6-%EC%B6%9C%EC%8B%9C&quot; aria-label=&quot;6 출시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6. 출시&lt;/h2&gt;
 &lt;p&gt;발생하는 버그들을 모두 수정했다면 이젠 출시를 준비할 때입니다. release 브랜치를 master 브랜치와 develop 브랜치에 merge하고 마지막으로 master 브랜치에서 버전 태그를 달아줍니다.&lt;/p&gt;
-&lt;h1&gt;결론&lt;/h1&gt;
-&lt;p&gt;아직 git rebase에 익숙치 않아서 rebase 방식을 공부해 보아야 겠다. 항상 merge 방식으로 개발을 해서 그런지 공부하기 전부터 두려움이 가득하다.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;h1 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h1&gt;
+&lt;p&gt;아직 git rebase에 익숙치 않아서 rebase 방식을 공부해 보아야 겠다. 항상 merge 방식으로 개발을 해서 그런지 공부하기 전부터 두려움이 가득하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[Your name Thank you for reading my resume. If you want to contact me, Please send me an email.]]></description><link>https://JoDMsoluth.github.io/resume-en/</link><guid isPermaLink="false">https://JoDMsoluth.github.io/resume-en/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;your-name&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#your-name&quot; aria-label=&quot;your name permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Your name&lt;/h1&gt;
+&lt;div align=&quot;center&quot;&gt;
+&lt;p&gt;&lt;em&gt;Thank you for reading my resume. If you want to contact me, Please send me an email.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item></channel></rss>
